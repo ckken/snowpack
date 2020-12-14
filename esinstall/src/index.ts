@@ -93,6 +93,12 @@ function resolveExportsMap(packageManifest: {exports: {}}, exportsProp: string) 
     exportMapEntry?.require ||
     exportMapEntry;
 
+  // For now we are bailing on when this is an object, but in the future we should add support
+  // as Parcel seems to do something with an object here.
+  if (typeof exportMapValue === 'object') {
+    return null;
+  }
+
   return exportMapValue;
 }
 
