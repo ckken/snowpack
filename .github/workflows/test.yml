@@ -23,6 +23,7 @@ jobs:
         run: |
           yarn --ignore-engines --frozen-lockfile
           yarn build
+          yarn bundle
         env:
           CI: true
       - name: test
